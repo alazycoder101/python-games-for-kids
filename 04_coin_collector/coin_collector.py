@@ -12,14 +12,14 @@ coin = Actor("coin")
 fox.pos = 200, 200
 
 def draw():
-	scorereen.fill("green")
+	screen.fill("green")
 	fox.draw()
 	coin.draw()
-	scorereenen.draw.text("Score: " + str(score), color="black", topleft=(10, 10))
+	screen.draw.text("Score: " + str(score), color="black", topleft=(10, 10))
 
 	if game_over:
-		screen.fill("pint")
-		screen.draw.text("Final Score: " + str(score), topleft=(10, 10), foxntsize=60)
+		screen.fill("pink")
+		screen.draw.text("Final Score: " + str(score), topleft=(10, 10), fontsize=60)
 
 def place_coin():
 	coin.x = randint(20, (WIDTH - 200))
@@ -37,9 +37,9 @@ def update():
 	elif keyboard.right:
 		fox.x = fox.x + 2
 	elif keyboard.up:
-		fox.x = fox.y - 2
+		fox.y = fox.y - 2
 	elif keyboard.down:
-		fox.x = fox.y + 2
+		fox.y = fox.y + 2
 
 	coin_collected = fox.colliderect(coin)
 
