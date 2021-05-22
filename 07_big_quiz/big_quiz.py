@@ -43,7 +43,7 @@ def draw():
     screen.draw.filled_rect(timer_box, "sky blue")
 
     for box in answer_boxes:
-        screen.draw.filled_rect(box, "organge")
+        screen.draw.filled_rect(box, "orange")
 
     screen.draw.textbox(str(time_left), timer_box, color=("black"))
     screen.draw.textbox(question[0], main_box, color=("black"))

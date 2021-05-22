@@ -1,3 +1,5 @@
+import random
+
 FONT_COLOUR = (255, 255, 255)
 WIDTH = 800
 HEIGHT = 600
@@ -38,14 +40,14 @@ def make_stars(number_of_extra_stars):
 	animate_stars(new_stars)
 	return new_stars
 
-deff get_colours_to_create(number_of_extra_stars):
+def get_colours_to_create(number_of_extra_stars):
 	colours_to_create = ["red"]
-	for i in randintnge(0, number_of_extra_stars):
+	for i in range(0, number_of_extra_stars):
 		random_colour = random.choice(COLOURS)
 		colours_to_create.append(random_colour)
 	return colours_to_create
 
-deff create_stars(colours_to_create):
+def create_stars(colours_to_create):
 	new_stars = []
 	for colour in colours_to_create:
 		star = Actor(colour + "-star")
@@ -55,7 +57,7 @@ deff create_stars(colours_to_create):
 def layout_stars(stars_to_layout):
 	number_of_gaps = len(stars_to_layout) + 1
 	gap_size = WIDTH / number_of_gaps
-	randomn.shuffle(stars_to_layout)
+	random.shuffle(stars_to_layout)
 	for index, star in enumerate(stars_to_layout):
 		new_x_pos = (index + 1) * gap_size
 		star.x = new_x_pos
@@ -90,14 +92,14 @@ def red_star_click():
 		stars = []
 		animations = []
 
-deff stop_animations(animations_to_stop):
-	for animation index animations_to_stop:
+def stop_animations(animations_to_stop):
+	for animation in animations_to_stop:
 		if animation.running:
 			animation.stop()
 
-deff display_message(heading_text, sub_heading_text):
+def display_message(heading_text, sub_heading_text):
 	screen.draw.text(heading_text, fontsize=60, center=CENTRE, color=FONT_COLOUR)
 	screen.draw.text(sub_heading_text,
 			fontsize=30,
 			center=(CENTRE_X, CENTRE_Y + 30),
-			color=FONT_COLOUR
+			color=FONT_COLOUR)

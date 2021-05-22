@@ -14,7 +14,7 @@ for dot in range(0, 10):
   dots.append(actor)
 
 def draw():
-  scree.fill("black")
+  screen.fill("black")
   number = 1
   for dot in dots:
       screen.draw.text(str(number), \
