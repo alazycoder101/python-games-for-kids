@@ -52,6 +52,9 @@ hard_lair = {
     "wake_counter": 0
 }
 
+lairs = [easy_lair, medium_lair, hard_lair]
+hero = Actor("hero", pos=HERO_START)
+
 def draw():
     global lairs, eggs_collected, lives, game_complete 
     screen.clear()
@@ -134,7 +137,11 @@ def update_waking_dragon(lair):
 
 def update_egg(lair):
     if lair["egg_hidden"] is True:
-    if lair["egg_hide_counter"] >= EGG_HIDE_TIME:
+        if lair["egg_hide_counter"] >= EGG_HIDE_TIME:
+            lair["egg_hidden"] = False
+            lair["egg_hide_counter"] = 0 
+        else:
+            lair["egg_hide_counter"] += 1
 
 def check_for_collisions():
     global lairs, eggs_collected, lives, reset_required, game_complete

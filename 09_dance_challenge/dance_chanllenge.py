@@ -22,13 +22,13 @@ dancer = Actor("dancer-start")
 dancer.pos = CENTRE_X + 5, CENTRE_Y - 40
 
 up = Actor("dancer-start")
-up.pos = CENTER_X, CENTER_Y + 110
+up.pos = CENTRE_X, CENTRE_Y + 110
 right = Actor("right")
-right.pos = CENTER_X + 60, CENTER_Y + 170
+right.pos = CENTRE_X + 60, CENTRE_Y + 170
 down = Actor("down")
-down.pos = CENTER_X, CENTER_Y + 230
+down.pos = CENTRE_X, CENTRE_Y + 230
 left = Actor("left")
-left.pos = CENTER_X - 60, CENTER_Y + 170
+left.pos = CENTRE_X - 60, CENTRE_Y + 170
 
 
 def draw():
@@ -98,35 +98,36 @@ def display_moves():
       this_move = display_list[0]
       display_list = display_list[1:]
       if this_move == 0:
-            update_dancer(0)
-           clock.schedule(display_moves, 1)
+        update_dancer(0)
+        clock.schedule(display_moves, 1)
       elif this_move == 1:
-            update_dancer(1)
+        update_dancer(1)
         clock.schedule(display_moves, 1)
       elif this_move == 2:
-            update_dancer(2)
+        update_dancer(2)
         clock.schedule(display_moves, 1)
       else:
         update_dancer(3)
-         clock.schedule(display_moves, 1)
+        clock.schedule(display_moves, 1)
     else:
-        say_dance = True
-        show_countdown = False
-  return
+      say_dance = True
+      show_countdown = False
+    return
 
 def countdown():
     global count, game_over, show_countdown
     if count > 1:
-        count = count - 1
-        clock.schedule(countdown, 1) 
+      count = count - 1
+      clock.schedule(countdown, 1) 
     else:
-        show_countdown = False
-        display_moves()
+      show_countdown = False
+      display_moves()
     return
 
 def generate_moves():
   global move_list, dance_length, count 
-  global show_countdown, say_dance count = 4
+  global show_countdown, say_dance
+  count = 4
   move_list = []
   say_dance = False
   for move in range(0, dance_length):
@@ -155,27 +156,27 @@ def on_key_up(key):
     else:
         game_over = True
   elif key == keys.RIGHT:
-      update_dancer(1)
+    update_dancer(1)
 
     if move_list[current_move] == 1:
-            score = score + 1
-            next_move()
-        else:
-            game_over = True
+      score = score + 1
+      next_move()
+    else:
+      game_over = True
   elif key == keys.DOWN:
     update_dancer(2)
     if move_list[current_move] == 2:
-            score = score + 1
-            next_move()
-        else:
-            game_over = True
+      score = score + 1
+      next_move()
+    else:
+      game_over = True
   elif key == keys.LEFT:
     update_dancer(3)
     if move_list[current_move] == 3:
-            score = score + 1
-            next_move()
+      score = score + 1
+      next_move()
     else:
-          game_over = True
+      game_over = True
   return
 
 
@@ -185,9 +186,9 @@ music.play("vanishing-horizon")
 def update():
   global game_over, current_move, moves_complete 
   if not game_over:
-        if moves_complete:
-            generate_moves()
-            moves_complete = False
-            current_move = 0
+    if moves_complete:
+      generate_moves()
+      moves_complete = False
+      current_move = 0
     else:
-        music.stop()
+      music.stop()

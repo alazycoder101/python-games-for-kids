@@ -25,7 +25,7 @@ scores = []
 
 def update_high_scores():
     global score, scores
-    filename = r"/Users/bharti/Desktop/python-games/balloon-flight/high-scores.txt"
+    filename = r"./high-scores.txt"
     scores = []
     with open(filename, "r") as file:
         line = file.readline()
@@ -52,7 +52,7 @@ def display_high_scores():
 
 def draw():
     screen.blit("background", (0, 0))
-    if not_game_over:
+    if not game_over:
         balloon.draw()
         bird.draw()
         house.draw()

@@ -3,10 +3,11 @@ import time
 
 WIDTH = 800
 HEIGHT = 600
-CENTER_X = WIDTH / 2 CENTER_Y = HEIGHT / 2
+CENTER_X = WIDTH / 2
+CENTER_Y = HEIGHT / 2
 
 game_over = False
-finalised = False
+finalized = False
 
 garden_happy = True
 fangflower_collision = False
@@ -33,7 +34,8 @@ def draw():
             flower.draw()
         for fangflower in fangflower_list:
             fangflower.draw()
-        time_elapsed = int(time.time() - start_time) screen.draw.text(
+        time_elapsed = int(time.time() - start_time)
+        screen.draw.text(
                     "Garden happy for: " +
                      str(time_elapsed) + " seconds", 
                      topleft=(10, 10), color="black"
@@ -95,7 +97,8 @@ def wilt_flower():
             rand_flower = randint(0, len(flower_list) - 1)
             if (flower_list[rand_flower].image == "flower"):
                 flower_list[rand_flower].image = "flower-wilt"
-                wilted_list[rand_flower] = time.time() clock.schedule(wilt_flower, 3)
+                wilted_list[rand_flower] = time.time()
+                clock.schedule(wilt_flower, 3)
     return
 
 def check_flower_collision():
